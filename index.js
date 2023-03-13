@@ -6,7 +6,7 @@
 
 let inputValue = 0
 
-const feet = 3.281  
+const feet = 3.281
 const gallon = 0.264
 const pound = 2.204
 
@@ -21,23 +21,19 @@ let literGallons = document.getElementById("liter-gallons")
 let kiloPounds = document.getElementById("kilo-pounds")
 
 
-convertBtn.addEventListener("click", function(){
-    inputValue = numberToConvert.value  
-    
-    let meterToFeet = feet * inputValue
-    let literToGallon = gallon * inputValue
-    let kiloToPound = pound * inputValue
-    
-    let feetToMeter = meter * inputValue
-    let gallonToLiter = liter * inputValue
-    let poundToKilo = kilogram * inputValue
-       
-    /* meterFeet.textContent = inputValue + " meters = " + meterToFeet + " feet | " + inputValue + " feet = " + feetToMeter + " meters" */
-    
-    meterFeet.textContent = `${inputValue} meters = ${meterToFeet.toFixed(3)} feet | ${inputValue} feet = ${feetToMeter.toFixed(3)}  meters`
-    
-    literGallons.textContent = `${inputValue} liters = ${literToGallon.toFixed(3)} gallons | ${inputValue} gallons = ${gallonToLiter.toFixed(3)}  liters`
-    
-    kiloPounds.textContent = `${inputValue} kilos = ${kiloToPound.toFixed(3)} pounds | ${inputValue} pounds = ${poundToKilo.toFixed(3)}  kilos`
-    
+convertBtn.addEventListener("click", function () {
+    inputValue = numberToConvert.value
+
+    render()
+
 })
+
+function render() {
+    meterFeet.textContent = `${inputValue} meters = ${(feet * inputValue).toFixed(3)} feet | ${inputValue} feet = ${(meter * inputValue).toFixed(3)}  meters`
+
+    literGallons.textContent = `${inputValue} liters = ${(gallon * inputValue).toFixed(3)} gallons | ${inputValue} gallons = ${(liter * inputValue).toFixed(3)}  liters`
+
+    kiloPounds.textContent = `${inputValue} kilos = ${(pound * inputValue).toFixed(3)} pounds | ${inputValue} pounds = ${(kilogram * inputValue
+    ).toFixed(3)}  kilos`
+}
+
